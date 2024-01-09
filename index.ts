@@ -1,14 +1,13 @@
 import { collection, getDocs, getDoc, setDoc, doc } from "firebase/firestore";
 import { auth, db } from './firebase';
 import { signInAnonymously } from "@firebase/auth";
-import { User } from './interfaces';
 import express from 'express'
 
 const app = express();
 
 const updateUsersData = async () => {
   const usersDoc = await getDocs(collection(db, 'users'));
-  const users: Array<User> = [];
+  const users: Array = [];
   const userIds: Array<string> = [];
   const todaysDay = new Date().getDay();
 
